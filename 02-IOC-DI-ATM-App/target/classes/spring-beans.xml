@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="hp" class="in.ashokit.beans.HpPrinter" />
+
+	<bean id="sony" class="in.ashokit.beans.SonyPrinter" />
+
+	<bean id="atm" class="in.ashokit.beans.ATM">
+
+		<constructor-arg name="printer" ref="hp" />
+
+		<property name="printer" ref="sony" />
+
+	</bean>
+
+</beans>

@@ -1,0 +1,39 @@
+package in.ashokit.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.pojo.Student;
+import in.ashokit.repo.StudentRepository;
+
+@Service
+public class StudentService {
+
+	@Autowired
+	private StudentRepository studentRepository;
+
+	public void saveStudent() {
+
+		Student s = new Student();
+		s.setId(102);
+		s.setName("Raju");
+		s.setCity("Pune");
+
+		int save = studentRepository.save(s);
+
+		System.out.println("No.of rows effected : " + save);
+	}
+
+	public void getStudentById(Integer id) {
+		Student student = studentRepository.findById(id);
+		System.out.println(student);
+	}
+
+	public void getAllStudents() {
+		List<Student> all = studentRepository.findAll();
+		all.forEach(System.out::println);
+	}
+
+}

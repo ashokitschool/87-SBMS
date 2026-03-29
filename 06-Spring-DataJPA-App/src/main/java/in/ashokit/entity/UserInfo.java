@@ -1,0 +1,20 @@
+package in.ashokit.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
+
+@Entity
+@Table(name = "user_info")
+@Data
+public class UserInfo {
+
+	@Id
+	private Integer id;
+	private String name;
+	private String gender;
+	private Integer age;
+	private String country;
+
+}

@@ -1,0 +1,19 @@
+package in.ashokit.repo;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+
+import in.ashokit.entity.UserInfo;
+
+//@Repository
+public interface UserInfoRepository extends CrudRepository<UserInfo, Integer> {
+
+	// select * from user_info where country=?
+	public List<UserInfo> findByCountry(String country);
+
+	// select * from user_info where gender=?
+	public List<UserInfo> findByGender(String gender);
+	
+	public List<UserInfo> findByAge(Integer age);
+}

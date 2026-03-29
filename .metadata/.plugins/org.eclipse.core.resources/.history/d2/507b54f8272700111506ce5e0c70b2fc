@@ -1,0 +1,9 @@
+package in.ashokit.mapper;
+
+import org.springframework.jdbc.core.RowMapper;
+
+import in.ashokit.pojo.Student;
+
+public class StudentRowMapper implements RowMapper<Student>{
+
+}

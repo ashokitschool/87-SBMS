@@ -1,0 +1,26 @@
+package in.ashokit.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import in.ashokit.entity.UserInfo;
+import in.ashokit.repo.UserInfoRepository;
+
+@Service
+public class UserService {
+
+	@Autowired
+	private UserInfoRepository userRepo;
+	
+	public void saveUser() {
+		
+		UserInfo info = new UserInfo();
+		info.setId(101);
+		info.setName("Ashok");
+		info.setGender("Male");
+		info.setCountry("India");
+		
+		
+	}
+
+}
