@@ -2,15 +2,15 @@ package in.ashokit.repo;
 
 import java.util.List;
 
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
 
 import in.ashokit.entity.UserInfo;
 import jakarta.transaction.Transactional;
 
 //@Repository
-public interface UserInfoRepository extends CrudRepository<UserInfo, Integer> {
+public interface UserInfoRepository extends JpaRepository<UserInfo, Integer> {
 
 	// *********************** Find By Methods ******************************** //
 

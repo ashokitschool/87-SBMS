@@ -1,0 +1,17 @@
+package in.ashokit.repo;
+
+import java.time.LocalDateTime;
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import in.ashokit.entity.Employee;
+
+public interface EmployeeRepository extends JpaRepository<Employee, Integer> {
+
+	public List<Employee> findByDateCreatedBetween(LocalDateTime start, LocalDateTime end);
+	
+	public List<Employee> findByDateCreated(LocalDateTime dateTime);
+
+
+}
