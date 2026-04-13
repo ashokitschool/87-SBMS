@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import in.ashokit.dto.User;
@@ -36,4 +37,27 @@ public class UserController {
 		model.addAttribute("users", usersList);
 		return "view-users";
 	}
+
+	@GetMapping("/edit-user/{userId}")
+	public String editUser(@PathVariable Integer userId, Model model) {
+		User userObj = userRepo.findById(userId).get();
+		model.addAttribute("user", userObj);
+		return "edit-user";
+	}
+
+	@PostMapping("/update-user")
+	public String updateUser(User user, Model model) {
+		userRepo.save(user);
+		model.addAttribute("msg", "User Updated");
+		return "edit-user";
+	}
+
+	@GetMapping("/delete-user/{userId}")
+	public String deleteUser(@PathVariable Integer userId, Model model) {
+		if (userRepo.existsById(userId)) {
+			userRepo.deleteById(userId);
+		}
+		return "redirect:/users";
+	}
+
 }
